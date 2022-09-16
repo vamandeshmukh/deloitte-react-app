@@ -1,3 +1,18 @@
+import Home from "./components/Home";
+
+const App = () => {
+
+  return (
+    <div >
+      <p >Welcome</p>
+      <p>Welcome to Deloitte React App</p>
+      <Home />
+    </div>
+  );
+
+}
+export default App;
+
 
 // // class component 
 
@@ -23,20 +38,6 @@
 // function components 
 // component - modern JS arrow function 
 
-import Home from "./components/Home";
-
-const App = () => {
-
-  return (
-    <div >
-      <p >Welcome</p>
-      <p>Welcome to Deloitte React App</p>
-      <Home />
-    </div>
-  );
-
-}
-export default App;
 
 // component - old JS function 
 // function App() {
