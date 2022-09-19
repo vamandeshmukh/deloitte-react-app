@@ -6,6 +6,7 @@ const Login = () => {
 
     const getMyName = () => {
         console.log(myName);
+        console.log();
     }
 
     return (
