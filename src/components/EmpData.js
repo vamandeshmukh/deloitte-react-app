@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-
 const EmpData = () => {
 
     const [emp, setEmp] = useState({});
