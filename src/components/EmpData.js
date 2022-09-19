@@ -22,11 +22,11 @@ const EmpData = () => {
         <div>
             <p>EmpData Component</p>
             <div>
-                <input type="number" name="eid" value={emp.eid} onChange={handleEmp} />
+                <input type="number" name="eid" value={emp.eid} onChange={handleEmp} placeholder="Please enter eid" />
                 <br />
-                <input type="text" name="firstName" value={emp.firstName} onChange={handleEmp} />
+                <input type="text" name="firstName" value={emp.firstName} onChange={handleEmp} placeholder="Please enter firstName" />
                 <br />
-                <input type="number" name="salary" value={emp.salary} onChange={handleEmp} />
+                <input type="number" name="salary" value={emp.salary} onChange={handleEmp} placeholder="Please enter salary" />
                 <br />
                 <input type="button" name="submit" value="Submit" onClick={submitEmp} />
             </div>
