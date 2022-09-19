@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const EmpData = () => {
 
     const [emp, setEmp] = useState({});
     const [empToSubmit, setEmpToSubmit] = useState({});
+
+    // useEffect is used to initilize state properties 
+    // useEffect(arg1, arg2);
+    // useEffect(() => {}, []);
+
+    useEffect(() => {
+        setEmp({ eid: ``, firstName: ``, salary: `` });
+        setEmpToSubmit({ eid: ``, firstName: ``, salary: `` });
+    }, []);
 
     const handleEmp = (evt) => {
         console.log(evt.target.name);
