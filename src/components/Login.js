@@ -1,11 +1,20 @@
+import { useState } from "react";
+
+// state = one object for one component
 
 
 const Login = () => {
 
-    let myName = ``;
+    // let myName = ``; // not valid for dynamic values 
+
+    let [myName, setMyName] = useState('');
+    let [salary, setSalary] = useState(0);
+    let [isMarried, setIsMarried] = useState(false);
 
     const getMyName = (evt) => {
-        myName = evt.target.value;
+        // myName = evt.target.value; // not valid 
+        setMyName(evt.target.value);
+
         console.log(myName);
         console.log(evt.target.value);
         console.log(evt.target.name);
