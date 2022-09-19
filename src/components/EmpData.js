@@ -4,6 +4,7 @@ import { useState } from "react";
 const EmpData = () => {
 
     const [emp, setEmp] = useState({});
+    const [empToSubmit, setEmpToSubmit] = useState({});
 
     const handleEmp = (evt) => {
         console.log(evt.target.name);
@@ -11,6 +12,10 @@ const EmpData = () => {
         setEmp({ ...emp, [evt.target.name]: evt.target.value });
     }
 
+    const submitEmp = () => {
+        alert(`${emp.eid} is added successfully.`);
+        setEmpToSubmit(emp);
+    }
 
     return (
         <div>
@@ -22,10 +27,10 @@ const EmpData = () => {
                 <br />
                 <input type="number" name="salary" value={emp.salary} onChange={handleEmp} />
                 <br />
-                {/* <input type="text" name="eid" value={} onChange={} /> */}
-
+                <input type="button" name="submit" value="Submit" onClick={submitEmp} />
             </div>
-            <p>EmpData: {emp.eid} {emp.firstName} {emp.salary}</p>
+            <p>EmpData as entered: {emp.eid} {emp.firstName} {emp.salary}</p>
+            <p>EmpData to submit: {empToSubmit.eid} {empToSubmit.firstName} {empToSubmit.salary}</p>
         </div>
     );
 }
