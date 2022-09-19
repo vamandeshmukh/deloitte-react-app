@@ -28,7 +28,7 @@ const Parent = () => {
                 passData={receiveDataFromChild}
             />
             <hr />
-            <Child2 />
+            <Child2 dataFromAnotherChild={childDataInParent} />
         </div>
     );
 
