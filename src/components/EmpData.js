@@ -6,8 +6,9 @@ const EmpData = () => {
     const [emp, setEmp] = useState({});
 
     const handleEmp = (evt) => {
+        console.log(evt.target.name);
         console.log(evt.target.value);
-
+        setEmp({ ...emp, [evt.target.name]: evt.target.value });
     }
 
 
@@ -24,7 +25,7 @@ const EmpData = () => {
                 {/* <input type="text" name="eid" value={} onChange={} /> */}
 
             </div>
-            <p>{emp.eid} {emp.firstName} {emp.salary}</p>
+            <p>EmpData: {emp.eid} {emp.firstName} {emp.salary}</p>
         </div>
     );
 }
