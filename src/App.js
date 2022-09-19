@@ -1,12 +1,14 @@
 import Home from "./components/Home";
 import Login from "./components/Login";
+import EmpData from './components/EmpData';
 
 const App = () => {
 
   return (
     <div >
       <p>App component</p>
-      <Login />
+      <EmpData />
+      {/* <Login /> */}
       {/* <Home /> */}
     </div>
   );

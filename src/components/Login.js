@@ -8,10 +8,10 @@ const Login = () => {
     // let myName = ``; // not valid for dynamic values 
 
     let [myName, setMyName] = useState(''); // string 
-    let [salary, setSalary] = useState(0); // number 
-    let [isMarried, setIsMarried] = useState(false); // boolean 
-    const [phones, setPhones] = useState([]); // array
-    const [empData, setEmpData] = useState({}); // object   
+    // let [salary, setSalary] = useState(0); // number 
+    // let [isMarried, setIsMarried] = useState(false); // boolean 
+    // const [phones, setPhones] = useState([]); // array
+    // const [empData, setEmpData] = useState({}); // object   
     // const [empData, setEmpData] = useState({ eid: 0, firstName: '', salary: 0 }); // object   
 
 
