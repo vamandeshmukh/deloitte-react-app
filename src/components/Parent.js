@@ -22,10 +22,12 @@ const Parent = () => {
             <p>Child data in parent component:
                 {childDataInParent}
             </p>
+            <hr />
             <Child
                 dataFromParent={parentData}
                 passData={receiveDataFromChild}
             />
+            <hr />
             <Child2 />
         </div>
     );

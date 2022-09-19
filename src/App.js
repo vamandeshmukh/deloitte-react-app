@@ -6,8 +6,9 @@ import Parent from './components/Parent';
 const App = () => {
 
   return (
-    <div  className="container">
+    <div className="container">
       <p>App component</p>
+      <hr />
       <Parent />
       {/* <EmpData /> */}
       {/* <Login /> */}

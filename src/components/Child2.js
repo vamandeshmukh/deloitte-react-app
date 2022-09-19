@@ -13,3 +13,7 @@ const Child2 = (props) => {
 }
 export default Child2;
 
+
+
+// Child to Parent to Child2 
+
