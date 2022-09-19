@@ -9,8 +9,9 @@ const Parent = () => {
 
     const receiveDataFromChild = (arg) => {
         console.log(`Parent function invoked.`)
-        console.log(arg);
-        setChildDataInParent(arg);
+        console.log(arg.value1);
+        console.log(arg.value2);
+        // setChildDataInParent(arg);
     }
 
     return (

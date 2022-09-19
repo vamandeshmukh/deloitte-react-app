@@ -4,10 +4,12 @@ const Child = (props) => {
 
     const [childData, setChildData] = useState(20);
     const parentDataInChild = props.dataFromParent;
+    const multipleValues = {value1 : `10`, value2: 'abc'};
 
     const sendDataToParent = () => {
         console.log(`Child function invoked.`)
-        props.passData(childData);
+        // props.passData(childData);
+        props.passData(multipleValues);
     }
 
     return (
