@@ -19,7 +19,9 @@ const Child = (props) => {
             <p>Parent data in child component:
                 {parentDataInChild}
             </p>
-            <input type="button" value="Pass data" onClick={sendDataToParent} />
+            <input type="button" value="Pass data"
+                onClick={sendDataToParent}
+            />
 
         </div>
     );

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Child from './Child';
+import Child2 from './Child2';
 
 const Parent = () => {
 
@@ -8,18 +9,24 @@ const Parent = () => {
 
     const receiveDataFromChild = (arg) => {
         console.log(`Parent function invoked.`)
+        console.log(arg);
         setChildDataInParent(arg);
     }
 
     return (
         <div >
             <p>Parent component</p>
-            <p>Parent data in parent component: {parentData}</p>
-            <p>Child data in parent component: {childDataInParent} </p>
+            <p>Parent data in parent component:
+                {parentData}
+            </p>
+            <p>Child data in parent component:
+                {childDataInParent}
+            </p>
             <Child
                 dataFromParent={parentData}
                 passData={receiveDataFromChild}
             />
+            <Child2 />
         </div>
     );
 
