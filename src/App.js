@@ -1,11 +1,12 @@
 import Home from "./components/Home";
+import Login from "./components/Login";
 
 const App = () => {
 
   return (
     <div >
-      <p >Welcome</p>
-      <p>Welcome to Deloitte React App</p>
+      <p>App component</p>
+      <Login />
       <Home />
     </div>
   );
