@@ -2,11 +2,13 @@
 
 const Login = () => {
 
-    const myName = ``;
+    let myName = ``;
 
-    const getMyName = () => {
+    const getMyName = (evt) => {
+        myName = evt.target.value;
         console.log(myName);
-        console.log();
+        console.log(evt.target.value);
+        console.log(evt.target.name);
     }
 
     return (
@@ -15,7 +17,7 @@ const Login = () => {
 
             <p>Please enter your name:</p>
             <div>
-                <input type="text" value={myName} onChange={getMyName} ></input>
+                <input type="text" id="myName" name="myName" value={myName} onChange={getMyName} ></input>
             </div>
             <p>Your name: {myName}</p>
 
