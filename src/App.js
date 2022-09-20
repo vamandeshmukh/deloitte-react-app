@@ -7,8 +7,6 @@ const App = () => {
 
   return (
     <div className="container">
-      <p>App component</p>
-      <hr />
       <Parent />
       {/* <EmpData /> */}
       {/* <Login /> */}

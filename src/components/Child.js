@@ -8,13 +8,12 @@ const Child = (props) => {
 
     const sendDataToParent = () => {
         console.log(`Child function invoked.`)
-        // props.passData(childData);
-        props.passData(multipleValues);
+        props.passData(childData);
     }
 
     return (
         <div >
-            <p>Child component</p>
+      <p className="display-4 text-primary">Child component</p>
             <p>Chld data in child component:
                 {childData}
             </p>

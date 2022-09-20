@@ -9,14 +9,13 @@ const Parent = () => {
 
     const receiveDataFromChild = (arg) => {
         console.log(`Parent function invoked.`)
-        console.log(arg.value1);
-        console.log(arg.value2);
-        // setChildDataInParent(arg);
+        console.log(arg);
+        setChildDataInParent(arg);
     }
 
     return (
         <div >
-            <p>Parent component</p>
+            <p className="display-4 text-primary">Parent component</p>
             <p>Parent data in parent component:
                 {parentData}
             </p>
