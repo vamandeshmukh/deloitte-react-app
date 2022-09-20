@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 
 const Login = () => {
 
@@ -40,7 +40,7 @@ const Login = () => {
 
     return (
         <div className="container" >
-            <p className="display-4 text-primary py-3">Login Component</p>
+            <p className="display-4 text-primary py-3">Login</p>
             <hr />
             <div className="col-3 mt-3 py-3 shadow bg-white" >
                 <h1 className="lead text-primary pb-2">Login</h1>
@@ -75,6 +75,9 @@ const Login = () => {
                         />
                     </div>
                 </form>
+            </div>
+            <div className="py-3 ">
+                <Link to="/register" className="btn btn-outline-primary col-3">Not yet registered? Register</Link>
             </div>
         </div >
     )
