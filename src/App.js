@@ -12,7 +12,6 @@ const App = () => {
       {/* <Parent /> */}
       {/* <EmpData /> */}
       {/* <Login /> */}
-      {/* <Home /> */}
     </div>
   );
 

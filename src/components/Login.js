@@ -55,6 +55,7 @@ const Login = () => {
                             value={appUser.userName}
                             onChange={handleAppUser}
                             required
+                            autoFocus
                         />
                         <input
                             type="password"
