@@ -12,7 +12,7 @@ const Child = (props) => {
     }
 
     return (
-        <div >
+        <div className="container">
       <p className="display-4 text-primary">Child component</p>
             <p>Chld data in child component:
                 {childData}

@@ -6,7 +6,7 @@ const Child2 = (props) => {
     const dataFromChild1 = props.dataFromAnotherChild;
 
     return (
-        <div >
+        <div className="container">
       <p className="display-4 text-primary">Child2 component</p>
             <p>Data from Child to Parent to Child2:
                 {dataFromChild1}

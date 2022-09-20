@@ -28,7 +28,7 @@ const EmpData = () => {
     }
 
     return (
-        <div>
+        <div className="container">
             <p>EmpData Component</p>
             <div>
                 <input type="number" name="eid" value={emp.eid} onChange={handleEmp} placeholder="Please enter eid" />

@@ -14,7 +14,7 @@ const Parent = () => {
     }
 
     return (
-        <div >
+        <div className="container">
             <p className="display-4 text-primary">Parent component</p>
             <p>Parent data in parent component:
                 {parentData}

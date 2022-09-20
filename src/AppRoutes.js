@@ -13,14 +13,17 @@ const AppRoutes = () => {
                 <div>
                     <Header />
                 </div>
-                <Routes>
-                    <Route path="/emp" element={<EmpData />} />
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/parent" element={<Parent />} />
-                    <Route path="/" element={<Home />} />
-                    {/* <Route path="/login" > <Login /> </Route> */}
-                </Routes>
+                <div>
+                    <Routes>
+                        <Route path="/emp" element={<EmpData />} />
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/parent" element={<Parent />} />
+                        <Route path="/" element={<Home />} />
+                        {/* <Route path="/login" > <Login /> </Route> */}
+                    </Routes>
+
+                </div>
             </BrowserRouter>
         </div>
     );
