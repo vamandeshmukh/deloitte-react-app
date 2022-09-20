@@ -8,7 +8,6 @@ const AppRoutes = () => {
 
     return (
         <div>
-            <p>Delete AppRoutes Component</p>
             <BrowserRouter>
                 <Routes>
                     <Route path="/emp" element={<EmpData />} />
@@ -18,7 +17,6 @@ const AppRoutes = () => {
                     <Route path="/" element={<Home />} />
 
                     {/* <Route path="/login" > <Login /> </Route> */}
-
 
                 </Routes>
             </BrowserRouter>
