@@ -7,7 +7,8 @@ const App = () => {
 
   return (
     <div className="container">
-      <Parent />
+      <Login />
+      {/* <Parent /> */}
       {/* <EmpData /> */}
       {/* <Login /> */}
       {/* <Home /> */}
