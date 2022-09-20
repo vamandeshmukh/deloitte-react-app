@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import EmpData from './components/EmpData';
 import Parent from './components/Parent';
 
+
 const App = () => {
 
   return (
