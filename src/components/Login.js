@@ -3,13 +3,79 @@ import { useState } from 'react';
 
 const Login = () => {
 
+    const [appUser, setAppUser] = useState({});
 
-    
+    useEffect(() => {
+        setAppUser({
+            userName: ``,
+            password: ``
+        });
+    }, []);
+
+    const handleAppUser = (event) => {
+        setAppUser({
+            ...appUser,
+            [event.target.name]: event.target.value
+        });
+    };
+
+    const submitAppUser = (event) => {
+        console.log(appUser);
+        if (appUser.userName === `Vaman`) {
+            alert(`User ${appUser.userName} logged in successfully!`);
+            setAppUser({
+                userName: ``,
+                password: ``
+            });
+        }
+        else {
+            alert(`Username ${appUser.userName} is not valid!`);
+            setAppUser({
+                userName: ``,
+                password: ``
+            });
+        }
+        event.preventDefault();
+    }
+
     return (
         <div className="container" >
             <p className="display-4 text-primary py-3">Login Component</p>
-    
-    
+            <hr />
+            <div className="col-3 mt-3 py-3 shadow bg-white" >
+                <h1 className="lead text-primary pb-2">Login</h1>
+                <form className="form form-group form-dark " onSubmit={submitAppUser}>
+                    <div>
+                        <input
+                            type="text"
+                            name="userName"
+                            id="userName"
+                            className="form-control mb-3"
+                            placeholder="Enter username"
+                            value={appUser.userName}
+                            onChange={handleAppUser}
+                            required
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            className="form-control mb-3"
+                            placeholder="Enter password"
+                            value={appUser.password}
+                            onChange={handleAppUser}
+                            required
+                        />
+                        <input
+                            type="submit"
+                            id="submit"
+                            name="submit"
+                            className="form-control btn btn-outline-primary"
+                            value="Login"
+                        />
+                    </div>
+                </form>
+            </div>
         </div >
     )
 }
