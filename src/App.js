@@ -1,17 +1,12 @@
-import Home from "./components/Home";
-import Login from "./components/Login";
-import EmpData from './components/EmpData';
-import Parent from './components/Parent';
+
+import AppRoutes from "./AppRoutes";
 
 
 const App = () => {
 
   return (
-    <div className="container">
-      <Login />
-      {/* <Parent /> */}
-      {/* <EmpData /> */}
-      {/* <Login /> */}
+    <div>
+      <AppRoutes />
     </div>
   );
 
