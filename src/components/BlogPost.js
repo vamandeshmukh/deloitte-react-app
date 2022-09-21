@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Post from "../models/Post";
 
 const BlogPost = () => {
 
@@ -11,17 +12,8 @@ const BlogPost = () => {
 
     useEffect(
         () => {
-            setTodaysPost({
-                userId: '',
-                id: '',
-                title: '',
-                body: ''
-            });
-            setPostToPublish({
-                userId: '',
-                title: '',
-                body: ''
-            });
+            setTodaysPost(new Post());
+            setPostToPublish(new Post());
         }
         ,
         []
