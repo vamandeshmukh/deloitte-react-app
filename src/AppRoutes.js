@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import BlogPost from "./components/BlogPost";
 import EmpData from './components/EmpData';
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -17,6 +18,7 @@ const AppRoutes = () => {
                 </div>
                 <div>
                     <Routes>
+                    <Route path="/blog" element={<BlogPost />} />
                         <Route path="/emp" element={<EmpData />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/login" element={<Login />} />
