@@ -51,8 +51,10 @@ const BlogPost = () => {
         })
             .then((response) => {
                 console.log(response.data);
-            }).catch((error) => { console.log(error.message); });
-
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
         evt.preventDefault();
     }
 
