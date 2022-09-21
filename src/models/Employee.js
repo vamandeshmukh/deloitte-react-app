@@ -11,3 +11,5 @@ class Employee {
         this.salary = salary;
     }
 }
+
+export default Employee;
