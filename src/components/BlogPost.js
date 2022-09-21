@@ -54,9 +54,14 @@ const BlogPost = () => {
             .then((response) => {
                 console.log(response.data);
                 alert(`Your blog post with postId ${response.data.id} has been created successfully!`);
+                setTodaysPost(new Post());
+                setPostToPublish(new Post());
             })
             .catch((error) => {
                 console.log(error.message);
+                alert(`Your blog post could not be published due to ${error.message}.`);
+                setTodaysPost(new Post());
+                setPostToPublish(new Post());
             });
         evt.preventDefault();
     }

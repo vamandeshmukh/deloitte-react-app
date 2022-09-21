@@ -27,7 +27,7 @@ const EmpData = () => {
         // code to send data to backend 
         // alert(`${emp.eid} is added successfully.`);
         setEmpToSubmit(emp);
-        setEmp({ eid: '', firstName: '', salary: '' });
+        setEmp(new Employee());
     }
 
     return (
