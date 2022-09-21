@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 
 const BlogPost = () => {
 
+    const url = `http://localhost:12345`;
+
     const [todaysPost, setTodaysPost] = useState({});
     const [postId, setPostId] = useState('');
 
@@ -28,7 +30,7 @@ const BlogPost = () => {
     const getBlogPostData = (evt) => {
 
         // axios.get().then().catch();
-        axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+        axios.get(`${url}/posts/${postId}`)
             .then((response) => {
                 console.log(response);
                 console.log(response.data);
