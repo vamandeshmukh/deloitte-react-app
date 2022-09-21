@@ -43,13 +43,14 @@ const BlogPost = () => {
     }
 
     const sendBlogPostData = (evt) => {
+        console.log(`send`);
 
         // axios.post().then().catch();
-        axios.post(`https://jsonplaceholder.typicode.com/posts/`, {
-            "userId": 5,
-            "id": 101,
-            "title": "optio ... sit",
-            "body": "temporibus ... quae"
+        axios.post(`${url}/posts/`, {
+            userId: 6,
+            id: 11111,
+            title: "optio ... sit",
+            body: "temporibus ... quae"
         })
             .then((response) => {
                 console.log(response.data);
