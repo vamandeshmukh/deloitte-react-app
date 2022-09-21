@@ -1,5 +1,3 @@
-
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -94,7 +92,8 @@ const BlogPost = () => {
                             type="submit"
                             value="Search Post"
                             className="btn btn-outline-primary form-control"
-                            onClick={getBlogPostData} />
+                            onClick={getBlogPostData}
+                        />
                     </form>
                     <hr />
                     <div>
