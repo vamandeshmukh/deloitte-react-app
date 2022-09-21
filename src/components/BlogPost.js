@@ -26,10 +26,8 @@ const BlogPost = () => {
 
 
     const getBlogPostData = (evt) => {
-        console.log(`getBlogPostData`);
 
         // axios.get().then().catch();
-
         axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
             .then((response) => {
                 console.log(response);
@@ -39,10 +37,25 @@ const BlogPost = () => {
                 console.log(error.message);
                 alert(`Post with postId ${postId} not found!`);
             });
+        evt.preventDefault();
+    }
 
+    const sendBlogPostData = (evt) => {
+
+        // axios.post().then().catch();
+        axios.post(`https://jsonplaceholder.typicode.com/posts/`, {
+            "userId": 5,
+            "id": 101,
+            "title": "optio ... sit",
+            "body": "temporibus ... quae"
+        })
+            .then((response) => {
+                console.log(response.data);
+            }).catch((error) => { console.log(error.message); });
 
         evt.preventDefault();
     }
+
 
     return (
         <div className="container">
@@ -50,6 +63,7 @@ const BlogPost = () => {
             <hr />
             <input type="number" value={postId} className="form-control col-4" onChange={handlePostIdInput} placeholder="Please enter postId" />
             <input type="button" value="View Post" className="btn btn-outline-primary mt-3 mb-3" onClick={getBlogPostData} />
+            <input type="button" value="Create Post" className="btn btn-outline-primary mt-3 mb-3" onClick={sendBlogPostData} />
             <div>
                 <p>Title: {todaysPost.title}</p>
                 <p>userId: {todaysPost.userId}</p>
