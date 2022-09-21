@@ -27,11 +27,20 @@ const BlogPost = () => {
 
     const getBlogPostData = (evt) => {
         console.log(`getBlogPostData`);
+
+        // axios.get().then().catch();
+
         axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
             .then((response) => {
+                console.log(response);
                 console.log(response.data);
                 setTodaysPost(response.data);
+            }).catch((error) => {
+                console.log(error.message);
+                alert(`Post with postId ${postId} not found!`);
             });
+
+
         evt.preventDefault();
     }
 
