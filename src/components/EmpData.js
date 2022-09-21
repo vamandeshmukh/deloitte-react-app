@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Employee from '../models/Employee';
 
 const EmpData = () => {
 
@@ -10,8 +11,10 @@ const EmpData = () => {
     // useEffect(() => {}, []);
 
     useEffect(() => {
-        setEmp({ eid: ``, firstName: ``, salary: `` });
-        setEmpToSubmit({ eid: ``, firstName: ``, salary: `` });
+        // setEmp({ eid: ``, firstName: ``, salary: `` });
+        setEmp(new Employee());
+        // setEmpToSubmit({ eid: ``, lastName: ``, salary: `` });
+        setEmpToSubmit(new Employee());
     }, []);
 
     const handleEmp = (evt) => {
