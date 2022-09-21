@@ -45,12 +45,11 @@ const BlogPost = () => {
     const sendBlogPostData = (evt) => {
         console.log(`send`);
 
-        // axios.post().then().catch();
         axios.post(`${url}/posts/`, {
-            userId: 6,
-            id: 11111,
-            title: "optio ... sit",
-            body: "temporibus ... quae"
+            userId: 8,
+            id: ``,
+            title: `Happy Weekend`,
+            body: `Weekends are a fantastic set of days...`
         })
             .then((response) => {
                 console.log(response.data);
