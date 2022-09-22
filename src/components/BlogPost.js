@@ -7,7 +7,7 @@ const BlogPost = () => {
     const url = `http://localhost:12345`;
 
     const [postId, setPostId] = useState('');
-    const [todaysPost, setTodaysPost] = useState({});
+    const [todaysPost, setTodaysPost] = useState({}); // EmpData wants to access this data 
     const [postToPublish, setPostToPublish] = useState({});
 
     useEffect(
