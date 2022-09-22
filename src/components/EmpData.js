@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Employee from '../models/Employee';
-import { setEmployee } from '../redux/EmpSlice';
+import { setEmpObj, setEmpList } from '../redux/EmpSlice';
 
 
 import {
@@ -18,7 +18,7 @@ const EmpData = () => {
     const [eid, setEid] = useState('');
     const emp = useSelector((store) => { return store.emp.empObj; });
     const [empToSubmit, setEmpToSubmit] = useState({});
-    const empList = useSelector(store => store.emp.empList);
+    const allEmpsList = useSelector(store => store.emp.empList);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -34,12 +34,26 @@ const EmpData = () => {
         setEmpToSubmit({ ...empToSubmit, [evt.target.name]: evt.target.value });
     };
 
+    const submitFindAllEmps = (evt) => {
+        console.log(`submitFindAllEmps`);
+        findAllEmployees()
+            .then((response) => {
+                console.log(response.data);
+                dispatch(setEmpList(response.data));
+            })
+            .catch((error) => {
+                console.log(error.message);
+                alert(`Employee with ${eid} not found ${error.message}.`);
+            });
+        evt.preventDefault();
+    };
+
     const submitFindEmpById = (evt) => {
         console.log(`submitFindEmpById ${eid}`);
         findEmployeeById(eid)
             .then((response) => {
                 console.log(response.data);
-                dispatch(setEmployee(response.data));
+                dispatch(setEmpObj(response.data));
             })
             .catch((error) => {
                 console.log(error.message);
@@ -53,7 +67,7 @@ const EmpData = () => {
         addEmployee(empToSubmit)
             .then((response) => {
                 console.log(response.data);
-                dispatch(setEmployee(response.data));
+                dispatch(setEmpObj(response.data));
                 alert(`Employee with eid ${response.data.id} added successfully!`);
             })
             .catch((error) => {
@@ -67,7 +81,6 @@ const EmpData = () => {
         <div className="container">
             <p className="display-4 text-primary">EmpData Component</p>
             <hr />
-
             <div>
                 <div className="row justify-content-center">
                     <div className="col-5 mx-3 my-3 py-3 bg-white shadow">
@@ -123,6 +136,13 @@ const EmpData = () => {
                             />
                         </form>
                     </div>
+                </div>
+                <div className="col-5 mx-3 my-3 py-3 bg-white shadow">
+                    <div>
+                        <button className="btn btn-outline-primary" value="Find All Emps" onClick={submitFindAllEmps} />
+                    </div>
+                    <p className="lead">List of All Employees</p>
+
                 </div>
             </div>
 

@@ -14,16 +14,21 @@ const EmpSlice = createSlice({
 
     reducers: {
 
-        setEmployee: (state, action) => {
+        setEmpObj: (state, action) => {
             console.log(action.payload);
             state.empObj = action.payload;
+        },
+        setEmpList: (state, action) => {
+            console.log(action.payload);
+            state.empList = action.payload;
         }
+
         // more methods here 
 
     } // methods for data access 
 });
 
-export const { setEmployee } = EmpSlice.actions;
+export const { setEmpObj, setEmpList } = EmpSlice.actions;
 
 
 export default EmpSlice.reducer;
