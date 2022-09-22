@@ -9,7 +9,7 @@ const EmpSlice = createSlice({
     initialState: {
         // empObj: new Employee()
         empObj: new Employee(101, `Sonu`, 10.5),
-        empObj: new Employee(102, `Monu`, 10.6)
+        empObj2: new Employee(102, `Monu`, 10.6)
 
     },  // like default values 
 
