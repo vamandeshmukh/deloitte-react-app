@@ -3,16 +3,28 @@ import Employee from '../models/Employee';
 
 
 const EmpSlice = createSlice({
+
     name: `emp`, // identifier for this slice 
+
     initialState: {
-        empObj: new Employee()
+        // empObj: new Employee()
+        empObj: new Employee(101, `Sonu`, 10.5),
+        empObj: new Employee(102, `Monu`, 10.6)
 
     },  // like default values 
+
     reducers: {
-        
+
+        getEmpById: (state, action) => {
+            console.log(state);
+            console.log(action.payload);
+            state.empObj = action.payload;
+        }
+
     } // methods for data access 
 });
 
-export { empReducer };
+export const { getEmpById } = EmpSlice.actions;
 
-export default EmpSlice;
+
+export default EmpSlice.reducer;

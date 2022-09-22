@@ -6,8 +6,9 @@ const EmpData = () => {
 
     const [emp, setEmp] = useState({});
     const [empToSubmit, setEmpToSubmit] = useState({});
-    const empDataFromStore =
-        useSelector((store) => { return store.emp.empObj; });
+
+    const empDataFromStore = useSelector((store) => { return store.emp.empObj; });
+    // const empDataFromStore = useSelector(store => store.emp.empObj);
 
     useEffect(() => {
         setEmp(new Employee());
