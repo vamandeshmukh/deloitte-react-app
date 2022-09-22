@@ -18,9 +18,7 @@ const EmpData = () => {
     const [eid, setEid] = useState('');
     const emp = useSelector((store) => { return store.emp.empObj; });
     const [empToSubmit, setEmpToSubmit] = useState({});
-    const empFromStore = useSelector((store) => { return store.emp.empObj; });
     const empList = useSelector(store => store.emp.empList);
-    const empDataFromStore = useSelector((store) => { return store.emp.empObj; });
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -28,16 +26,16 @@ const EmpData = () => {
     }, []);
 
     const handleEid = (evt) => {
-        console.log(`handleEid`);
+        console.log(`${evt.target.name} ${evt.target.value}`);
         setEid(evt.target.value);
     };
     const handleEmp = (evt) => {
-        console.log(`handleEmp`);
-        setEmpToSubmit({ ...emp, [evt.target.name]: evt.target.value });
+        console.log(`${evt.target.name} ${evt.target.value}`);
+        setEmpToSubmit({ ...empToSubmit, [evt.target.name]: evt.target.value });
     };
 
     const submitFindEmpById = (evt) => {
-        console.log(`submitFindEmpById`);
+        console.log(`submitFindEmpById ${eid}`);
         findEmployeeById(eid)
             .then((response) => {
                 console.log(response.data);
@@ -51,7 +49,7 @@ const EmpData = () => {
     };
 
     const submitAddEmp = (evt) => {
-        console.log(`submitAddEmp`);
+        console.log(empToSubmit);
         addEmployee(empToSubmit)
             .then((response) => {
                 console.log(response.data);
