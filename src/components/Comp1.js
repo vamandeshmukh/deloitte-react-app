@@ -6,7 +6,7 @@ const Comp1 = () => {
     const [dataFromComp1User, setDataFromComp1User] = useState('');
 
     const comp1DataFromStore = useSelector(store => store.comp1.data1);
-    // const [comp2DataFromStore, setcomp2DataFromStore] = useSelector(store => store.comp2.data1);
+    const comp2DataFromStore = useSelector(store => store.comp2.data2);
 
     const dispatch = useDispatch();
 
@@ -35,7 +35,7 @@ const Comp1 = () => {
                 <p>Data : </p>
                 <p>dataFromComp1User: {dataFromComp1User}</p>
                 <p>comp1DataFromStore: {comp1DataFromStore}</p>
-                {/* <p>comp2DataFromStore: {comp2DataFromStore}</p> */}
+                <p>comp2DataFromStore: {comp2DataFromStore}</p>
             </div>
         </div>
     );

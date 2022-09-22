@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BlogPost from "./components/BlogPost";
 import Comp1 from "./components/Comp1";
-// import Comp2 from "./components/Comp2";
+import Comp2 from "./components/Comp2";
 import EmpData from './components/EmpData';
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -22,7 +22,7 @@ const AppRoutes = () => {
                     <Routes>
                         <Route path="/blog" element={<BlogPost />} />
                         <Route path="/comp1" element={<Comp1 />} />
-                        {/* <Route path="/comp2" element={<Comp2 />} /> */}
+                        <Route path="/comp2" element={<Comp2 />} />
                         <Route path="/emp" element={<EmpData />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/login" element={<Login />} />
