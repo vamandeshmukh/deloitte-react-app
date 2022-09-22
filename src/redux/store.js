@@ -8,6 +8,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import empReducer from './EmpSlice';
+import comp1Reducer from './Comp1Slice';
 
 
 // const store = () => {
@@ -17,6 +18,7 @@ import empReducer from './EmpSlice';
 const store = configureStore({
     reducer: {
         emp: empReducer,
+        comp1: comp1Reducer,
         // blog: blogReducer
         // other reducers for other components 
     }

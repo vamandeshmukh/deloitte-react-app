@@ -20,6 +20,7 @@ const EmpSlice = createSlice({
             console.log(action.payload);
             state.empObj = action.payload;
         }
+        // more methods here 
 
     } // methods for data access 
 });
