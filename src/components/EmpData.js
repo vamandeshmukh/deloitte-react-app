@@ -3,15 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import Employee from '../models/Employee';
 import { setEmpObj, setEmpList } from '../redux/EmpSlice';
 
-
 import {
     findAllEmployees,
     findEmployeeById,
     addEmployee,
     updateEmployee,
     deleteEmployee
-}
-    from '../services/EmpService';
+} from '../services/EmpService';
 
 const EmpData = () => {
 
@@ -142,13 +140,8 @@ const EmpData = () => {
                         <button className="btn btn-outline-primary" value="Find All Emps" onClick={submitFindAllEmps} />
                     </div>
                     <p className="lead">List of All Employees</p>
-
                 </div>
             </div>
-
-
-
-
         </div>
     );
 }
