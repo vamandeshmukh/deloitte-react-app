@@ -1,12 +1,12 @@
 
 class Employee {
 
-    eid;
+    id;
     firstName;
     salary;
 
-    constructor(eid, firstName, salary) {
-        this.eid = eid;
+    constructor(id, firstName, salary) {
+        this.id = id;
         this.firstName = firstName;
         this.salary = salary;
     }

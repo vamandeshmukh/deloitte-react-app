@@ -14,14 +14,21 @@ const Comp1Slice = createSlice({
             console.log(state);
             console.log(action.payload);
             state.data1 = action.payload;
+        },
+        sendComp1DataToStore2: (state, action) => {
+            console.log(state);
+            console.log(action.payload);
+            state.data1 = action.payload;
         }
+
         // more methods here 
 
     }
 
 });
 
-export const { sendComp1DataToStore } = Comp1Slice.actions;
+export const { sendComp1DataToStore, sendComp1DataToStore2 } = Comp1Slice.actions;
+// export default Comp1Slice;
 
 
 export default Comp1Slice.reducer;

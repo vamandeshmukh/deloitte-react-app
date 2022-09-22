@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { sendComp1DataToStore } from '../redux/Comp1Slice';
+
 const Comp1 = () => {
 
     const [dataFromComp1User, setDataFromComp1User] = useState('');
@@ -18,6 +19,8 @@ const Comp1 = () => {
     const submitDataFromUser = (evt) => {
         console.log(dataFromComp1User);
         dispatch(sendComp1DataToStore(dataFromComp1User));
+        evt.preventDefault();
+
     }
     return (
         <div className="container">

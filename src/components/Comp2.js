@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { sendComp2DataToStore } from '../redux/Comp2Slice';
+
 const Comp2 = () => {
 
     const [dataFromComp2User, setDataFromComp2User] = useState('');
@@ -18,6 +19,7 @@ const Comp2 = () => {
     const submitDataFromUser = (evt) => {
         console.log(dataFromComp2User);
         dispatch(sendComp2DataToStore(dataFromComp2User));
+        evt.preventDefault();
     }
     return (
         <div className="container">
@@ -25,9 +27,9 @@ const Comp2 = () => {
             <hr />
             <div>
                 <p>Please enter data:</p>
-                <form>
+                <form onSubmit={submitDataFromUser}>
                     <input type="text" name="dataFromComp2User" value={dataFromComp2User} placeholder="Enter" onChange={handleDataFromUser} />
-                    <input type="button" value="Submit" onClick={submitDataFromUser} />
+                    <input type="submit" value="Submit" />
                 </form>
                 <hr />
             </div>

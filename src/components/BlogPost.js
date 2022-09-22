@@ -33,6 +33,8 @@ const BlogPost = () => {
 
     const getBlogPostData = (evt) => {
 
+        // http://localhost:12345/posts/1
+
         // axios.get().then().catch();
         axios.get(`${url}/posts/${postId}`)
             .then((response) => {
