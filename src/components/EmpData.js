@@ -75,46 +75,50 @@ const EmpData = () => {
         evt.preventDefault();
     };
 
+    const submitUpdateEmp = (evt) => {
+        console.log(empToSubmit);
+        updateEmployee(empToSubmit)
+            .then((response) => {
+                console.log(response.data);
+                dispatch(setEmpObj(response.data));
+                alert(`Employee with eid ${response.data.id} updated successfully!`);
+            })
+            .catch((error) => {
+                console.log(error.message);
+                alert(`Employee could not be updated ${error.message}.`)
+            });
+        evt.preventDefault();
+    };
+
+    const submitDeleteEmpById = (evt) => {
+        console.log(`submitDeleteEmpById ${eid}`);
+        // if (window.confirm('Delete the employee?')) {
+        deleteEmployee(eid)
+            .then((response) => {
+                console.log(response.data);
+                dispatch(setEmpObj(response.data));
+            })
+            .catch((error) => {
+                console.log(error.message);
+                alert(`Employee with ${eid} not found ${error.message}.`);
+            });
+        // }
+        evt.preventDefault();
+    };
+
     return (
         <div className="container">
             <p className="display-4 text-primary">EmpData Component</p>
             <hr />
-            <div>
-                <p>Show and Hide</p>
-                <div>
-                    {(emp.firstName) && <p>Display this</p>}
-                </div>
-            </div>
+            {/* <div>
+                <p>Show and Hide: {(emp.firstName) && <span>Display this</span>}</p>
+            </div> */}
             <div>
                 <div className="row justify-content-center">
-                    <div className="col-5 mx-3 my-3 py-3 bg-white shadow">
-                        <p className="lead">Find an Employee by Id</p>
-                        <form class="form-inline">
-                            <input
-                                type="number"
-                                name="id"
-                                value={eid}
-                                onChange={handleEid}
-                                className="form-control mr-2"
-                                placeholder="Please enter eid"
-                            />
-                            <input
-                                type="submit"
-                                value="Search Employee"
-                                className="btn btn-outline-primary form-control"
-                                onClick={submitFindEmpById}
-                            />
-                        </form>
-                        <hr />
-                        <div>
-                            <p>id: {emp.id}</p>
-                            <p>firstName: {emp.firstName}</p>
-                            <p>salary: {emp.salary}</p>
-                        </div>
-                    </div>
 
                     <div className="col-5 mx-3 my-3 py-3 bg-white shadow">
-                        <p className="lead">Add a new Employee</p>
+                        <p className="lead">Add a new Employee 1</p>
+                        <hr />
                         <form>
                             <input
                                 type="text"
@@ -140,16 +144,113 @@ const EmpData = () => {
                             />
                         </form>
                     </div>
+                    <div className="col-5 mx-3 my-3 py-3 bg-white shadow">
+                        <p className="lead">Update Employee Details</p>
+                        <hr />
+                        <form>
+                            <input
+                                type="number"
+                                name="id"
+                                value={empToSubmit.id}
+                                onChange={handleEmp}
+                                className="form-control mr-2"
+                                placeholder="Please enter eid"
+                            />
+                            <input
+                                type="text"
+                                name="firstName"
+                                value={empToSubmit.firstName}
+                                className="form-control mt-3 mb-3"
+                                placeholder="Please enter firstName"
+                                onChange={handleEmp}
+                            />
+                            <input
+                                type="number"
+                                name="salary"
+                                value={empToSubmit.salary}
+                                className="form-control mt-3 mb-3"
+                                placeholder="Please enter salary"
+                                onChange={handleEmp}
+                            />
+                            <input
+                                type="submit"
+                                value="Update Employee"
+                                className="btn btn-outline-primary mt-3 mb-3"
+                                onClick={submitUpdateEmp}
+                            />
+                        </form>
+                    </div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-5 mx-3 my-3 py-3 bg-white shadow">
+                        <p className="lead">Find an Employee by Id 1</p>
+                        <hr />
+                        <form class="form-inline">
+                            <input
+                                type="number"
+                                name="id"
+                                value={eid}
+                                onChange={handleEid}
+                                className="form-control mr-2"
+                                placeholder="Please enter eid"
+                            />
+                            <input
+                                type="submit"
+                                value="Search Employee"
+                                className="btn btn-outline-primary form-control"
+                                onClick={submitFindEmpById}
+                            />
+                        </form>
+                        <hr />
+                        <p className="text-primary text-center lead">Employee Details 1</p>
+                        <div>
+                            <p>id: {emp.id}</p>
+                            <p>firstName: {emp.firstName}</p>
+                            <p>salary: {emp.salary}</p>
+                        </div>
+                    </div>
+
+                    <div className="col-5 mx-3 my-3 py-3 bg-white shadow">
+                        <p className="lead">Delete an Employee by Id</p>
+                        <hr />
+                        <form class="form-inline">
+                            <input
+                                type="number"
+                                name="id"
+                                value={eid}
+                                onChange={handleEid}
+                                className="form-control mr-2"
+                                placeholder="Please enter eid"
+                            />
+                            <input
+                                type="submit"
+                                value="Delete Employee"
+                                className="btn btn-outline-primary form-control"
+                                onClick={submitDeleteEmpById}
+                            />
+                        </form>
+                        <hr />
+                        <p className="text-primary text-center lead">Employee Details 2</p>
+                        <div>
+                            <p>id: {emp.id}</p>
+                            <p>firstName: {emp.firstName}</p>
+                            <p>salary: {emp.salary}</p>
+                        </div>
+                    </div>
+
+
                 </div>
                 <div className="row justify-content-center ">
                     <div className="col-6 mx-3 my-3 px-3 py-3 bg-white shadow">
                         <p className="lead">List of All Employees</p>
+                        <hr />
                         <div>
                             <input type="button" className="btn btn-outline-primary" value="Find All Emps" onClick={submitFindAllEmps} />
                         </div>
                         <div> {(allEmpsList.length !== 0) &&
                             <div>
-                                <p className="text-primary text-center lead">List of All Employees</p>
+                                <hr />
+                                <p className="text-primary text-center lead">Employees List</p>
                                 {
                                     <table className="table">
                                         <thead>
@@ -159,7 +260,6 @@ const EmpData = () => {
                                                 <th>Salary</th>
                                             </tr>
                                         </thead>
-                                        {allEmpsList.  }
                                         {allEmpsList.map((e =>
                                             <tbody>
                                                 <tr>

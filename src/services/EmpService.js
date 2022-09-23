@@ -18,11 +18,12 @@ const addEmployee = (emp) => {
 }
 
 const updateEmployee = (emp) => {
-    console.log(`updateEmployee${emp}`)
+    console.log(`updateEmployee${emp.id}`)
     return axios.put(`${url}/${emp.id}`, emp);
 }
 
 const deleteEmployee = (id) => {
+    console.log(`deleteEmployee${id}`)
     return axios.delete(`${url}/${id}`);
 }
 
