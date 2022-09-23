@@ -7,6 +7,8 @@ const findAllEmployees = () => {
     return axios.get(url);
 }
 
+// http://localhost:12345/emps/102
+
 const findEmployeeById = (id) => {
     console.log(`findEmployeeById/${id}`);
     return axios.get(`${url}/${id}`);

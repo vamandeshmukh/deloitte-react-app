@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Employee from '../models/Employee';
 import { setEmpObj, setEmpList } from '../redux/EmpSlice';
-
+import axios from "axios";
 import {
     findAllEmployees,
     findEmployeeById,
@@ -13,6 +13,7 @@ import {
 
 const EmpData = () => {
 
+    const url = `http://localhost:12345/emps`;
     const [eid, setEid] = useState('');
     const emp = useSelector((store) => { return store.emp.empObj; });
     const [empToSubmit, setEmpToSubmit] = useState({});
@@ -34,7 +35,11 @@ const EmpData = () => {
 
     const submitFindAllEmps = (evt) => {
         console.log(`submitFindAllEmps`);
-        findAllEmployees()
+
+        // axios.get().then().catch();
+
+        // findAllEmployees()
+        axios.get(url)
             .then((response) => {
                 console.log(response.data);
                 dispatch(setEmpList(response.data));
@@ -92,15 +97,17 @@ const EmpData = () => {
 
     const submitDeleteEmpById = (evt) => {
         console.log(`submitDeleteEmpById ${eid}`);
-        deleteEmployee(eid)
-            .then((response) => {
-                console.log(response.data);
-                dispatch(setEmpObj(response.data));
-            })
-            .catch((error) => {
-                console.log(error.message);
-                alert(`Employee with ${eid} not found ${error.message}.`);
-            });
+        if (window.confirm('Delete the employee?')) {
+            deleteEmployee(eid)
+                .then((response) => {
+                    console.log(response.data);
+                    dispatch(setEmpObj(response.data));
+                })
+                .catch((error) => {
+                    console.log(error.message);
+                    alert(`Employee with ${eid} not found ${error.message}.`);
+                });
+        }
         evt.preventDefault();
     };
 
