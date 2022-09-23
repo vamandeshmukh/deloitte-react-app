@@ -92,7 +92,6 @@ const EmpData = () => {
 
     const submitDeleteEmpById = (evt) => {
         console.log(`submitDeleteEmpById ${eid}`);
-        // if (window.confirm('Delete the employee?')) {
         deleteEmployee(eid)
             .then((response) => {
                 console.log(response.data);
@@ -102,7 +101,6 @@ const EmpData = () => {
                 console.log(error.message);
                 alert(`Employee with ${eid} not found ${error.message}.`);
             });
-        // }
         evt.preventDefault();
     };
 
