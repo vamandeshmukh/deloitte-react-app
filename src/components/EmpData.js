@@ -80,6 +80,12 @@ const EmpData = () => {
             <p className="display-4 text-primary">EmpData Component</p>
             <hr />
             <div>
+                <p>Show and Hide</p>
+                <div>
+                    {(emp.firstName) && <p>Display this</p>}
+                </div>
+            </div>
+            <div>
                 <div className="row justify-content-center">
                     <div className="col-5 mx-3 my-3 py-3 bg-white shadow">
                         <p className="lead">Find an Employee by Id</p>
@@ -135,11 +141,41 @@ const EmpData = () => {
                         </form>
                     </div>
                 </div>
-                <div className="col-5 mx-3 my-3 py-3 bg-white shadow">
-                    <div>
-                        <button className="btn btn-outline-primary" value="Find All Emps" onClick={submitFindAllEmps} />
+                <div className="row justify-content-center ">
+                    <div className="col-6 mx-3 my-3 px-3 py-3 bg-white shadow">
+                        <p className="lead">List of All Employees</p>
+                        <div>
+                            <input type="button" className="btn btn-outline-primary" value="Find All Emps" onClick={submitFindAllEmps} />
+                        </div>
+                        <div> {(allEmpsList.length !== 0) &&
+                            <div>
+                                <p className="text-primary text-center lead">List of All Employees</p>
+                                {
+                                    <table className="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Eid</th>
+                                                <th>First Name</th>
+                                                <th>Salary</th>
+                                            </tr>
+                                        </thead>
+                                        {allEmpsList.  }
+                                        {allEmpsList.map((e =>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{e.id}</td>
+                                                    <td>{e.firstName}</td>
+                                                    <td>{e.salary}</td>
+                                                </tr>
+                                            </tbody>
+                                        ))}
+                                    </table>
+                                }
+                            </div>
+                        }
+                        </div>
                     </div>
-                    <p className="lead">List of All Employees</p>
+
                 </div>
             </div>
         </div>
