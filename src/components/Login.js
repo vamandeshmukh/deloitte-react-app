@@ -48,8 +48,8 @@ const Login = () => {
             .then((response) => {
                 console.log(response.data);
                 dispatch(setLoggedInUser(response.data));
-                navigate(`/home`);
-            })
+                navigate(`/home`); // imp 
+             })
             .catch(err => console.log(err.message));
 
         event.preventDefault();
