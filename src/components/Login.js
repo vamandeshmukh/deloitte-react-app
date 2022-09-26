@@ -18,7 +18,7 @@ const Login = () => {
     useEffect(() => {
         setAppUserToLogin(new AppUser());
         findAllAppUsers()
-            .then(resp => dispatch(setAppUsersList(resp.data)))
+            .then(resp => dispatch(setAppUsersList(resp.data))) 
             .catch(err => console.log(err.message));
     }, []);
 
