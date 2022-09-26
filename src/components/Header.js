@@ -12,7 +12,6 @@ const Header = () => {
                 <div>
                     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                         <Link className="navbar-brand" to="/"><img height="24px" src="../media/Deloitte_logo_black.png" alt="Deloitte"></img> </Link>
-                        {/* <Link className="navbar-brand" to="/"><img height="24px" src="https://brandpalettes.com/wp-content/uploads/2020/06/deloitte-02.png" alt="Deloitte"></img> </Link> */}
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -52,7 +51,6 @@ const Header = () => {
                 <div>
                     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                         <Link className="navbar-brand" to="/"><img height="24px" src="../media/Deloitte_logo_black.png" alt="Deloitte"></img> </Link>
-                        {/* <Link className="navbar-brand" to="/"><img height="24px" src="https://brandpalettes.com/wp-content/uploads/2020/06/deloitte-02.png" alt="Deloitte"></img> </Link> */}
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                             <span className="navbar-toggler-icon"></span>
                         </button>

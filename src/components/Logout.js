@@ -12,7 +12,6 @@ const Logout = () => {
         if (window.confirm('Are you sure to logout?')) {
             dispatch(setLoggedInUser(''));
             navigate(`/home`);
-            // alert("Logged out successfully...");
         }
         else {
             navigate(-1);
