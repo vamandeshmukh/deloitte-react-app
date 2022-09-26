@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setAppUserData, setLoggedInUser, setAppUsersList } from '../redux/AppUserSlice';
-import { findAllAppUsers, login, register } from '../services/AppUserService';
+import { setAppUsersList } from '../redux/AppUserSlice';
+import { findAllAppUsers, register } from '../services/AppUserService';
 import AppUser from "../models/AppUser";
 
 const Register = () => {
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const usersList = useSelector(store => store.appUser.appUsersList);
     const [appUserToRegister, setAppUserToRegister] = useState({});
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     useEffect(() => {
         setAppUserToRegister(new AppUser());
@@ -49,7 +49,7 @@ const Register = () => {
             register(appUserToRegister)
                 .then((response) => {
                     console.log(response.data);
-                    alert(`User ${response.data.userName} regisetred successfully!`);
+                    alert(`User ${response.data.userName} regisetred successfully! Navigating to Login...`);
                     navigate(`/login`);
                 })
                 .catch((error) => {

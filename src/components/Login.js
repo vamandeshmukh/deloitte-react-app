@@ -44,9 +44,13 @@ const Login = () => {
                 .then((response) => {
                     console.log(response.data);
                     dispatch(setLoggedInUser(response.data));
+                    alert(`User ${response.data.userName} logged in successfully! Navigating to Home...`);
                     navigate(`/home`);
                 })
-                .catch(err => console.log(err.message));
+                .catch((err) => {
+                    console.log(err.message);
+                    alert(err.message);
+                });
         }
         else {
             setAppUserToLogin({ userName: '', password: '' });
