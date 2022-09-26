@@ -9,6 +9,8 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Parent from './components/Parent';
 import Register from "./components/Register";
+import Logout from "./components/Logout";
+import Profile from "./components/Profile";
 
 const AppRoutes = () => {
 
@@ -26,7 +28,9 @@ const AppRoutes = () => {
                         <Route path="/emp" element={<EmpData />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/logout" element={<Logout />} />
                         <Route path="/parent" element={<Parent />} />
+                        <Route path="/profile" element={<Profile />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/" element={<Home />} />
                         {/* <Route path="/login" > <Login /> </Route> */}
