@@ -11,8 +11,9 @@ const Logout = () => {
     const submitLogout = () => {
         if (window.confirm('Are you sure to logout?')) {
             dispatch(setLoggedInUser(''));
-            localStorage.setItem(`loginStatus`, '');
-            navigate(`/home`);
+            localStorage.removeItem(`loginStatus`);
+            navigate(`/`);
+            window.location.reload();
         }
         else {
             navigate(-1);

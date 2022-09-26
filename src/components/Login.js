@@ -44,9 +44,10 @@ const Login = () => {
                 .then((response) => {
                     console.log(response.data);
                     dispatch(setLoggedInUser(response.data));
-                    sessionStorage.getItem(`loginStatus`, true);
+                    localStorage.setItem(`loginStatus`, true);
                     alert(`User ${response.data.userName} logged in successfully! Navigating to Home...`);
                     navigate(`/`);
+                    window.location.reload();
                 })
                 .catch((err) => {
                     console.log(err.message);

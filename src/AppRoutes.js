@@ -8,6 +8,7 @@ import EmpData from './components/EmpData';
 import Header from "./components/Header";
 import Home from './components/Home';
 import Login from './components/Login';
+import Logout from "./components/Logout";
 import Parent from './components/Parent';
 import Register from "./components/Register";
 
@@ -15,7 +16,7 @@ import Register from "./components/Register";
 const AppRoutes = () => {
 
     // const currrentUser = useSelector(store => store.appUser.loggedInUser);
-    const currrentUser = sessionStorage.getItem(`loginStatus`);
+    const currrentUser = localStorage.getItem(`loginStatus`);
 
     return (
         <div>
@@ -32,6 +33,7 @@ const AppRoutes = () => {
                                 <Route path="/comp2" element={<Comp2 />} />
                                 <Route path="/emp" element={<EmpData />} />
                                 <Route path="/home" element={<Home />} />
+                                <Route path="/logout" element={<Logout />} />
                                 <Route path="/parent" element={<Parent />} />
                                 <Route path="/" element={<Home />} />
                                 {/* <Route path="/login" > <Login /> </Route> */}
