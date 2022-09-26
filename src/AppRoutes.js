@@ -14,7 +14,8 @@ import Register from "./components/Register";
 
 const AppRoutes = () => {
 
-    const currrentUser = useSelector(store => store.appUser.loggedInUser);
+    // const currrentUser = useSelector(store => store.appUser.loggedInUser);
+    const currrentUser = sessionStorage.getItem(`loginStatus`);
 
     return (
         <div>

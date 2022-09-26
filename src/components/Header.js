@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
 
-    const currrentUser = useSelector(store => store.appUser.loggedInUser);
-    // const currrentUser = localStorage.getItem(`loginStatus`);
+    // const currrentUser = useSelector(store => store.appUser.loggedInUser);
+    const currrentUser = sessionStorage.getItem(`loginStatus`);
 
     return (
         <div>
