@@ -22,6 +22,7 @@ const Register = () => {
         []);
 
     const handleAppUserToRegister = (event) => {
+        console.log(event.target.value);
         setAppUserToRegister({
             ...appUserToRegister,
             [event.target.name]: event.target.value
@@ -34,7 +35,7 @@ const Register = () => {
         for (const element of usersList) {
             console.log(element);
             console.log(tempUser);
-            if (element.userName === appUserToRegister.userName) {
+            if (element.userName.toLowerCase() === appUserToRegister.userName.toLowerCase()) {
                 tempUser = element;
                 console.log(element);
                 console.log(tempUser);
