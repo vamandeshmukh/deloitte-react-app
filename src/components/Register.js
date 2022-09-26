@@ -1,29 +1,65 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setAppUserData, setLoggedInUser, setAppUsersList } from '../redux/AppUserSlice';
+import { findAllAppUsers, login, register } from '../services/AppUserService';
+import AppUser from "../models/AppUser";
 
 const Register = () => {
 
-    const [appUser, setAppUser] = useState({});
+    const usersList = useSelector(store => store.appUser.appUsersList);
+    const [appUserToRegister, setAppUserToRegister] = useState({});
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        setAppUser({
-            userName: ``,
-            password: ``
-        });
-    }, []);
+        setAppUserToRegister(new AppUser());
+        findAllAppUsers()
+            .then(resp => dispatch(setAppUsersList(resp.data)))
+            .catch(err => console.log(err.message));
+    },
+        []);
 
-    const handleAppUser = (event) => {
-        setAppUser({
-            ...appUser,
+    const handleAppUserToRegister = (event) => {
+        setAppUserToRegister({
+            ...appUserToRegister,
             [event.target.name]: event.target.value
         });
     };
 
-    const submitAppUser = (event) => {
-        console.log(appUser);
-        alert(`User ${appUser.userName} regisetred successfully!`);
-        event.preventDefault();
-    }
+    const submitAppUserRegister = (event) => {
+        let tempUser = new AppUser();
+        console.log(appUserToRegister);
+        for (const element of usersList) {
+            console.log(element);
+            console.log(tempUser);
+            if (element.userName === appUserToRegister.userName) {
+                tempUser = element;
+                console.log(element);
+                console.log(tempUser);
+                setAppUserToRegister({ userName: '', password: '' });
+                alert(`user ${appUserToRegister.userName} already exists!`);
+                break;
+            }
+        }
+        if (!tempUser.userName) {
+            console.log(tempUser);
+            console.log(appUserToRegister);
+            register(appUserToRegister)
+                .then((response) => {
+                    console.log(response.data);
+                    alert(`User ${response.data.userName} regisetred successfully!`);
+                    navigate(`/login`);
+                })
+                .catch((error) => {
+                    console.log(error.message);
+                    alert(error.message);
+                });
+
+
+        } event.preventDefault();
+    };
 
     return (
         <div className="container" >
@@ -31,7 +67,7 @@ const Register = () => {
             <hr />
             <div className="col-3 mt-3 py-3 shadow bg-white" >
                 <h1 className="lead text-primary pb-2">Register</h1>
-                <form className="form form-group form-dark " onSubmit={submitAppUser}>
+                <form className="form form-group form-dark " onSubmit={submitAppUserRegister}>
                     <div>
                         <input
                             type="text"
@@ -39,8 +75,8 @@ const Register = () => {
                             id="userName"
                             className="form-control mb-3"
                             placeholder="Enter username"
-                            value={appUser.userName}
-                            onChange={handleAppUser}
+                            value={appUserToRegister.userName}
+                            onChange={handleAppUserToRegister}
                             required
                         />
                         <input
@@ -49,8 +85,8 @@ const Register = () => {
                             id="password"
                             className="form-control mb-3"
                             placeholder="Enter password"
-                            value={appUser.password}
-                            onChange={handleAppUser}
+                            value={appUserToRegister.password}
+                            onChange={handleAppUserToRegister}
                             required
                         />
                         <input

@@ -2,27 +2,25 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setAppUserData, setLoggedInUser, setAppUsersList } from '../redux/AppUserSlice';
-import { findAllAppUsers, register, login, logout } from '../services/AppUserService';
+import { setLoggedInUser, setAppUsersList } from '../redux/AppUserSlice';
+import { findAllAppUsers, login } from '../services/AppUserService';
 
 import AppUser from "../models/AppUser";
 
 const Login = () => {
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [appUserToLogin, setAppUserToLogin] = useState({});
-    const [appUser, setAppUser] = useSelector(store => store.appUser.appUserData);
     const usersList = useSelector(store => store.appUser.appUsersList);
-    const dispatch = useDispatch();
 
     useEffect(() => {
         setAppUserToLogin(new AppUser());
         findAllAppUsers()
-            .then(resp => dispatch(setAppUsersList(resp.data))) 
+            .then(resp => dispatch(setAppUsersList(resp.data)))
             .catch(err => console.log(err.message));
-    }, []);
-
-
+    },
+        []);
 
     const handleAppUserToLogin = (event) => {
         setAppUserToLogin({
@@ -32,25 +30,29 @@ const Login = () => {
     };
 
     const submitLogin = (event) => {
-        let abc = {};
+        let tempUser = {};
         console.log(`submitLogin`);
         usersList.forEach(element => {
             if (element.userName === appUserToLogin.userName) {
-                abc = element;
-                setAppUserToLogin(element);
+                tempUser = element;
             }
-            console.log(element);
-            console.log(abc);
-            console.log(appUserToLogin);
         });
 
-        login(abc)
-            .then((response) => {
-                console.log(response.data);
-                dispatch(setLoggedInUser(response.data));
-                navigate(`/home`); // imp 
-             })
-            .catch(err => console.log(err.message));
+        if (tempUser.userName === appUserToLogin.userName && tempUser.password === appUserToLogin.password) {
+            setAppUserToLogin(tempUser);
+            login(tempUser)
+                .then((response) => {
+                    console.log(response.data);
+                    dispatch(setLoggedInUser(response.data));
+                    navigate(`/home`);
+                })
+                .catch(err => console.log(err.message));
+        }
+        else {
+            setAppUserToLogin({ userName: '', password: '' });
+            alert(`Invalid credentials!`);
+        }
+
 
         event.preventDefault();
     }
