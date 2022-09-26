@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
 
     const currrentUser = useSelector(store => store.appUser.loggedInUser);
+    // const currrentUser = localStorage.getItem(`loginStatus`);
 
     return (
         <div>
