@@ -6,13 +6,16 @@ const App = () => {
 
   return (
     <div>
-      {/* <AppRoutes /> */}
+      <AppRoutes />
       {/* <p>Hello world!</p> */}
       <p>Hello world!</p>
       <p>Hello world! 2</p>
       {/* <p>Hello world! 3</p> */}
       <p>Hello world! 4</p>
       <p>Hello world! 4</p>
+      <div>
+        <button data-testid="abc" type="submit">submit</button>
+      </div>
     </div>
   );
 

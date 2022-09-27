@@ -3,8 +3,9 @@ import { Provider } from 'react-redux';
 import App from './App';
 import store from './redux/store';
 
-
-// guide: https://github.com/testing-library/jest-dom 
+// guides: 
+// https://github.com/testing-library/jest-dom 
+// https://www.npmjs.com/package/@testing-library/jest-dom 
 
 beforeEach(() => {
   render(
@@ -34,7 +35,12 @@ test('renders Hello world! 4, two timmes', () => {
   expect(renderedData).toHaveLength(2);
 });
 
+test('renders submit button', () => {
+  const renderedData = screen.getByTestId('abc');
+  expect(renderedData).not.toBeDisabled()
+});
 
+// expect(getByTestId('button')).toBeDisabled()
 
 
 // import { render, screen } from '@testing-library/react';
