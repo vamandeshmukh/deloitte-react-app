@@ -13,7 +13,7 @@ beforeEach(() => {
       <EmpData />
     </Provider>
   );
-}, 2000);
+}, 100);
 
 test('renders emp component', () => {
   const renderedData = screen.getByText(`Find an Employee by Id 1`);
