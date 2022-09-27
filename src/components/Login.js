@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setLoggedInUser, setAppUsersList } from '../redux/AppUserSlice';
+import { setLoggedInUser, setAppUsersList, setUserLoginStatus } from '../redux/AppUserSlice';
 import { findAllAppUsers, login } from '../services/AppUserService';
 
 import AppUser from "../models/AppUser";
@@ -19,6 +19,7 @@ const Login = () => {
         findAllAppUsers()
             .then(resp => dispatch(setAppUsersList(resp.data)))
             .catch(err => console.log(err.message));
+
     },
         []);
 
@@ -29,7 +30,7 @@ const Login = () => {
         });
     };
 
-    const submitLogin = (event) => {
+    const submitLogin = async (event) => {
         let tempUser = {};
         console.log(`submitLogin`);
         usersList.forEach(element => {
@@ -44,10 +45,11 @@ const Login = () => {
                 .then((response) => {
                     console.log(response.data);
                     dispatch(setLoggedInUser(response.data));
-                    localStorage.setItem(`loginStatus`, true);
-                    alert(`User ${response.data.userName} logged in successfully! Navigating to Home...`);
+                    window.sessionStorage.setItem(`loginStatus`, true);
+                    console.log(window.sessionStorage.getItem(`loginStatus`));
+                    alert(`User ${response.data.userName} logged in successfully!`);
                     navigate(`/`);
-                    window.location.reload();
+                    // window.location.reload();
                 })
                 .catch((err) => {
                     console.log(err.message);

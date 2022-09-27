@@ -1,12 +1,15 @@
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { setUserLoginStatus } from '../redux/AppUserSlice';
 
 const Header = () => {
 
-    // const currrentUser = useSelector(store => store.appUser.loggedInUser);
-    const currrentUser = localStorage.getItem(`loginStatus`);
+    console.log(window.sessionStorage.getItem(`loginStatus`));
 
+    let currrentUser = window.sessionStorage.getItem(`loginStatus`);
+
+    
     return (
         <div>
             {currrentUser &&

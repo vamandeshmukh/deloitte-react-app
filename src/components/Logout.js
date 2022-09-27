@@ -1,9 +1,18 @@
-
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { setLoggedInUser, setUserLoginStatus } from '../redux/AppUserSlice';
 import { useNavigate } from "react-router-dom";
-import { setLoggedInUser } from '../redux/AppUserSlice';
+
 
 const Logout = () => {
+
+    // useEffect(() => {
+    //     if (sessionStorage.getItem(`loginStatus`))
+    //         dispatch(setUserLoginStatus(sessionStorage.getItem(`loginStatus`)));
+    // },
+    //     []);
+
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -11,9 +20,9 @@ const Logout = () => {
     const submitLogout = () => {
         if (window.confirm('Are you sure to logout?')) {
             dispatch(setLoggedInUser(''));
-            localStorage.removeItem(`loginStatus`);
+            window.sessionStorage.removeItem(`loginStatus`);
             navigate(`/`);
-            window.location.reload();
+            // window.location.reload();
         }
         else {
             navigate(-1);

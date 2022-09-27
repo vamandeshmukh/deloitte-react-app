@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BlogPost from "./components/BlogPost";
@@ -15,8 +16,9 @@ import Register from "./components/Register";
 
 const AppRoutes = () => {
 
-    // const currrentUser = useSelector(store => store.appUser.loggedInUser);
-    const currrentUser = localStorage.getItem(`loginStatus`);
+    console.log(window.sessionStorage.getItem(`loginStatus`));
+
+    let currrentUser = window.sessionStorage.getItem(`loginStatus`);
 
     return (
         <div>
@@ -45,7 +47,9 @@ const AppRoutes = () => {
                             <Routes>
                                 <Route path="/login" element={<Login />} />
                                 <Route path="/register" element={<Register />} />
-                                <Route path="/" element={<Home />} />
+                                <Route exact path="/" element={<Home />} />
+                                <Route path="/logout"  element={<Logout />} />
+                                <Route path="*" element={<Home />} />
                                 {/* <Route path="/login" > <Login /> </Route> */}
                             </Routes>
                         </div>

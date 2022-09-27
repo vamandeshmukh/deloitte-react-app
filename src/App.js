@@ -6,14 +6,16 @@ const App = () => {
 
   return (
     <div>
-      <AppRoutes />
+      {/* <AppRoutes /> */}
+      <p>Hello world!</p>
+      <p>Hello world! 2</p>
     </div>
   );
 
 }
 export default App;
 
-
+ 
 // // class component 
 
 // import React from "react";

@@ -6,6 +6,7 @@ const AppUserSlice = createSlice({
     name: `appUser`,
 
     initialState: {
+        userloginStatus: false,
         appUserData: '',
         loggedInUser: '',
         appUsersList: []
@@ -13,6 +14,10 @@ const AppUserSlice = createSlice({
 
     reducers: {
 
+        setUserLoginStatus: (state, action) => {
+            console.log(action.payload);
+            state.userloginStatus = action.payload;
+        },
         setAppUserData: (state, action) => {
             console.log(action.payload);
             state.appUserData = action.payload;
@@ -28,7 +33,7 @@ const AppUserSlice = createSlice({
     }
 });
 
-export const { setAppUserData, setLoggedInUser, setAppUsersList } = AppUserSlice.actions;
+export const { setUserLoginStatus, setAppUserData, setLoggedInUser, setAppUsersList } = AppUserSlice.actions;
 
 
 export default AppUserSlice.reducer;
